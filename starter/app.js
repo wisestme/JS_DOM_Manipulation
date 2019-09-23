@@ -9,9 +9,13 @@ GAME RULES:
 
 */
 
-let scores, roundScores,activePlayer;
+let scores, roundScores, activePlayer, dice;
 scores = [0, 0];
 roundScores = 0;
 activePlayer = 0;
+
+dice = Math.floor(Math.random() * 6) + 1;
+
+console.log(dice);
 
 
