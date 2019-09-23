@@ -151,7 +151,7 @@ form {
 
 .dice {
     position: absolute;
-    left: 60%;
+    left: 50%;
     top: 178px;
     transform: translateX(-50%);
     height: 100px;
@@ -159,6 +159,7 @@ form {
 }
 
 .dice2 {
+    display:none;
     position: absolute;
     left: 40%;
     top: 178px;
