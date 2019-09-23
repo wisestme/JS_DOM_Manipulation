@@ -14,11 +14,19 @@ scores = [0, 0];
 roundScores = 0;
 activePlayer = 0;
 
-dice = Math.floor(Math.random() * 6) + 1;
 
-console.log(dice);
 
-currentScore = document.querySelector(`#current-${activePlayer}`);
-console.log(currentScore);
+//console.log(dice);
 
-currentScore.textContent = dice;
+
+//console.log(currentScore);
+
+
+
+function throwDice () {
+	dice = Math.floor(Math.random() * 6) + 1;
+	currentScore = document.querySelector(`#current-${activePlayer}`);
+	currentScore.textContent = dice;
+}
+
+document.querySelector('.btn-roll').addEventListener('click', throwDice);
