@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-let scores, roundScores, activePlayer, dice;
+let scores, roundScores, activePlayer, dice, currentScore;
 scores = [0, 0];
 roundScores = 0;
 activePlayer = 0;
@@ -18,4 +18,7 @@ dice = Math.floor(Math.random() * 6) + 1;
 
 console.log(dice);
 
+currentScore = document.querySelector(`#current-${activePlayer}`);
+console.log(currentScore);
 
+currentScore.textContent = dice;
