@@ -152,6 +152,7 @@ form {
 
 .dice {
     position: absolute;
+    display: none;
     left: 50%;
     top: 178px;
     transform: translateX(-50%);

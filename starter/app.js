@@ -9,24 +9,19 @@ GAME RULES:
 
 */
 
-let scores, roundScores, activePlayer, dice, currentScore;
+let scores, roundScores, activePlayer, currentScore;
 scores = [0, 0];
 roundScores = 0;
 activePlayer = 0;
 
-
-
-//console.log(dice);
-
-
-//console.log(currentScore);
-
-
-
-function throwDice () {
-	dice = Math.floor(Math.random() * 6) + 1;
+//let diceRoller = document.querySelector('.btn-roll');
+document.querySelector('.btn-roll').addEventListener('click', function() {
+	let dice = Math.floor(Math.random() * 6) + 1;
+	let diceImage = document.querySelector('.dice');
+	diceImage.setAttribute('src', `dice-${dice}.png`);
+	diceImage.style.display = 'block';
 	currentScore = document.querySelector(`#current-${activePlayer}`);
 	currentScore.textContent = dice;
-}
 
-document.querySelector('.btn-roll').addEventListener('click', throwDice);
+
+});
