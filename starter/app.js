@@ -33,6 +33,11 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 	currentScoreValue = parseInt(currentScore.textContent);
 	
 	// increment the value of round score and display it
-	currentScoreAggregate += currentScoreValue;
-	currentScore.textContent = currentScoreAggregate;
+	if(dice !== 1) {
+		currentScoreAggregate += currentScoreValue;
+		currentScore.textContent = currentScoreAggregate;
+	} else {
+		currentScore.textContent = 0;
+	}
+	
 });
