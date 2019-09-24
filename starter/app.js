@@ -37,6 +37,12 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 		currentScoreAggregate += currentScoreValue;
 		currentScore.textContent = currentScoreAggregate;
 	} else {
+		let playerPanel0 = document.querySelector(`.player-0-panel`);
+		let playerPanel1 = document.querySelector(`.player-1-panel`);
+		//let playerPanel = document.getElementsByClassName(`panel`);
+		//console.log(playerPanel);
+		playerPanel0.classList.toggle('active');
+		playerPanel1.classList.toggle('active');
 		currentScore.textContent = 0;
 		currentScoreAggregate = 0;
 		activePlayer = 1 - activePlayer;
