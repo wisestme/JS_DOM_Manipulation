@@ -14,14 +14,25 @@ scores = [0, 0];
 roundScores = 0;
 activePlayer = 0;
 
+let currentScoreAggregate = 0;
+
 //let diceRoller = document.querySelector('.btn-roll');
 document.querySelector('.btn-roll').addEventListener('click', function() {
 	let dice = Math.floor(Math.random() * 6) + 1;
+
+	// Display corresponding dice image
 	let diceImage = document.querySelector('.dice');
 	diceImage.setAttribute('src', `dice-${dice}.png`);
 	diceImage.style.display = 'block';
+
+	// display corresponding current score
 	currentScore = document.querySelector(`#current-${activePlayer}`);
 	currentScore.textContent = dice;
 
-
+	// get value of current score
+	currentScoreValue = parseInt(currentScore.textContent);
+	
+	// increment the value of round score and display it
+	currentScoreAggregate += currentScoreValue;
+	currentScore.textContent = currentScoreAggregate;
 });
