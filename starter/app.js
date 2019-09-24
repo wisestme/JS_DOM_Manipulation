@@ -38,6 +38,8 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 		currentScore.textContent = currentScoreAggregate;
 	} else {
 		currentScore.textContent = 0;
+		currentScoreAggregate = 0;
+		activePlayer = 1 - activePlayer;
 	}
 	
 });
