@@ -15,7 +15,9 @@ roundScores = 0;
 activePlayer = 0;
 
 let currentScoreAggregate = 0;
-
+function currentScoreDOM() {
+	currentScore = document.querySelector(`#current-${activePlayer}`);
+}
 // Turn Changer
 function switchTurn() {
 	let playerPanel0 = document.querySelector(`.player-0-panel`);
@@ -23,6 +25,11 @@ function switchTurn() {
 	playerPanel0.classList.toggle('active');
 	playerPanel1.classList.toggle('active');
 	activePlayer = 1 - activePlayer;
+}
+
+function resetCurrentScores() {
+	currentScore.textContent = 0;
+	currentScoreAggregate = 0;
 }
 
 
@@ -36,17 +43,13 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 	diceImage.style.display = 'block';
 
 	// display corresponding current score
-	currentScore = document.querySelector(`#current-${activePlayer}`);
+	//currentScore = document.querySelector(`#current-${activePlayer}`);
+	currentScoreDOM();
 	currentScore.textContent = dice;
 
 	// get value of current score
 	currentScoreValue = parseInt(currentScore.textContent);
 
-	function resetCurrentScores() {
-	currentScore.textContent = 0;
-	currentScoreAggregate = 0;
-}
-	
 	// increment the value of round score and display it
 	if(dice !== 1) {
 		currentScoreAggregate += currentScoreValue;
@@ -59,3 +62,15 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 	}
 });
 
+// Use hold button to add current score to player score
+
+document.querySelector('.btn-hold').addEventListener('click', function(){
+	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
+	console.log(typeof(playerScoreDOM.textContent));
+	let playerScore = parseInt(playerScoreDOM.textContent);
+	console.log(playerScore);
+	currentScoreDOM();
+	playerScore += parseInt(currentScore.textContent)
+	console.log(playerScore);
+	playerScoreDOM.textContent = playerScore
+})
