@@ -16,6 +16,16 @@ activePlayer = 0;
 
 let currentScoreAggregate = 0;
 
+// Turn Changer
+function switchTurn() {
+	let playerPanel0 = document.querySelector(`.player-0-panel`);
+	let playerPanel1 = document.querySelector(`.player-1-panel`);
+	playerPanel0.classList.toggle('active');
+	playerPanel1.classList.toggle('active');
+	activePlayer = 1 - activePlayer;
+}
+
+
 //let diceRoller = document.querySelector('.btn-roll');
 document.querySelector('.btn-roll').addEventListener('click', function() {
 	let dice = Math.floor(Math.random() * 6) + 1;
@@ -31,21 +41,21 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 	// get value of current score
 	currentScoreValue = parseInt(currentScore.textContent);
+
+	function resetCurrentScores() {
+	currentScore.textContent = 0;
+	currentScoreAggregate = 0;
+}
 	
 	// increment the value of round score and display it
 	if(dice !== 1) {
 		currentScoreAggregate += currentScoreValue;
 		currentScore.textContent = currentScoreAggregate;
 	} else {
-		let playerPanel0 = document.querySelector(`.player-0-panel`);
-		let playerPanel1 = document.querySelector(`.player-1-panel`);
 		//let playerPanel = document.getElementsByClassName(`panel`);
 		//console.log(playerPanel);
-		playerPanel0.classList.toggle('active');
-		playerPanel1.classList.toggle('active');
-		currentScore.textContent = 0;
-		currentScoreAggregate = 0;
-		activePlayer = 1 - activePlayer;
+		switchTurn();
+		resetCurrentScores();
 	}
-	
 });
+
