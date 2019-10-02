@@ -35,7 +35,9 @@ function resetCurrentScores() {
 
 
 //let diceRoller = document.querySelector('.btn-roll');
-document.querySelector('.btn-roll').addEventListener('click', function() {
+let rollButton = document.querySelector('.btn-roll');
+
+rollButton.addEventListener('click', function() {
 	let dice = Math.floor(Math.random() * 6) + 1;
 
 	// Display corresponding dice image
@@ -64,8 +66,9 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 });
 
 // Use hold button to add current score to player score
+let holdButton = document.querySelector('.btn-hold');
 
-document.querySelector('.btn-hold').addEventListener('click', function(){
+holdButton.addEventListener('click', function(){
 	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
 	let playerScore = parseInt(playerScoreDOM.textContent);
 	
@@ -83,6 +86,9 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 		let player = document.querySelector(`#name-${activePlayer}`);
 		player.classList.add('winner');
 		player.textContent = 'Winner';
+
+		holdButton.style.display = 'none';
+		rollButton.style.display = 'none';
 	}
 })
 
