@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-let scores, roundScores, activePlayer, currentScore;
+let scores, roundScores, activePlayer, currentScore, winner;
 scores = [0, 0];
 roundScores = 0;
 activePlayer = 0;
@@ -74,4 +74,11 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 	playerScoreDOM.textContent = playerScore;
 	switchTurn();
 	resetCurrentScores();
+
+	if(playerScore >= 10) {
+		switchTurn();
+		winner = `Player ${activePlayer + 1}`;
+		console.log(winner);
+	}
 })
+
