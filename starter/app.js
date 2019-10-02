@@ -15,6 +15,7 @@ roundScores = 0;
 activePlayer = 0;
 
 let currentScoreAggregate = 0;
+
 function currentScoreDOM() {
 	currentScore = document.querySelector(`#current-${activePlayer}`);
 }
@@ -66,11 +67,11 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 document.querySelector('.btn-hold').addEventListener('click', function(){
 	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
-	console.log(typeof(playerScoreDOM.textContent));
 	let playerScore = parseInt(playerScoreDOM.textContent);
-	console.log(playerScore);
+	
 	currentScoreDOM();
-	playerScore += parseInt(currentScore.textContent)
-	console.log(playerScore);
-	playerScoreDOM.textContent = playerScore
+	playerScore += parseInt(currentScore.textContent);
+	playerScoreDOM.textContent = playerScore;
+	switchTurn();
+	resetCurrentScores();
 })
