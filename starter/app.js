@@ -79,6 +79,10 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 		switchTurn();
 		winner = `Player ${activePlayer + 1}`;
 		console.log(winner);
+
+		let player = document.querySelector(`#name-${activePlayer}`);
+		player.classList.add('winner');
+		player.textContent = 'Winner';
 	}
 })
 
