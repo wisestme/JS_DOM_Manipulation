@@ -89,6 +89,9 @@ holdButton.addEventListener('click', function(){
 
 		holdButton.style.display = 'none';
 		rollButton.style.display = 'none';
+
+		let diceImage = document.querySelector('.dice');
+		diceImage.style.display = 'none';
 	}
 })
 
