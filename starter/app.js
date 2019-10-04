@@ -78,7 +78,7 @@ holdButton.addEventListener('click', function(){
 	switchTurn();
 	resetCurrentScores();
 
-	if(playerScore >= 10) {
+	if(playerScore >= 20) {
 		switchTurn();
 		winner = `Player ${activePlayer + 1}`;
 		console.log(winner);
