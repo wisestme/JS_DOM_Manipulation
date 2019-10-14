@@ -16,10 +16,9 @@
 }
 
 body {
-    background: linear-gradient(180deg, #111C2D, #33486E, #111C2D);
-    /*background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(green.jpeg);
+    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(green.jpeg);
     background-size: cover;
-    background-position: center;*/
+    background-position: center;
     font-family: Lato;
     font-weight: 300;
     position: relative;

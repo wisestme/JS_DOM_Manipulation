@@ -95,3 +95,18 @@ holdButton.addEventListener('click', function(){
 	}
 })
 
+
+// USE NEW BUTTON TO RESTART
+let newButton = document.querySelector('.btn-new');
+
+newButton.addEventListener('click', function() {
+	resetCurrentScores();
+
+	let allPlayerScore = document.querySelectorAll('.player-score');
+	console.log(allPlayerScore);
+
+	allPlayerScore.forEach(function(allPlayerScore) {
+		allPlayerScore.textContent = 0;
+
+	})
+})
