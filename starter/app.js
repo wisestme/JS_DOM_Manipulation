@@ -107,6 +107,10 @@ newButton.addEventListener('click', function() {
 
 	allPlayerScore.forEach(function(allPlayerScore) {
 		allPlayerScore.textContent = 0;
-
-	})
+	});
+	activePlayer = 0;
+	let playerPanel0 = document.querySelector(`.player-0-panel`);
+	let playerPanel1 = document.querySelector(`.player-1-panel`);
+	playerPanel0.classList.add('active');
+	playerPanel1.classList.remove('active');
 })
