@@ -113,4 +113,11 @@ newButton.addEventListener('click', function() {
 	let playerPanel1 = document.querySelector(`.player-1-panel`);
 	playerPanel0.classList.add('active');
 	playerPanel1.classList.remove('active');
+	document.querySelector(`#name-0`).textContent = `Player 1`;
+	document.querySelector(`#name-1`).textContent = `Player 2`;
+	document.querySelector(`#name-0`).classList.add('player-name');
+	document.querySelector(`#name-1`).classList.add('player-name');
+	
+	let playerName = document.querySelector('.winner');
+	playerName.classList.remove('winner');
 })
