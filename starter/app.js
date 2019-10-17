@@ -120,4 +120,9 @@ newButton.addEventListener('click', function() {
 	
 	let playerName = document.querySelector('.winner');
 	playerName.classList.remove('winner');
+
+	let diceImage = document.querySelector('.dice');
+		diceImage.style.display = 'block';
+		holdButton.style.display = 'block';
+		rollButton.style.display = 'block';
 })
