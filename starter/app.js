@@ -100,6 +100,14 @@ holdButton.addEventListener('click', function(){
 let newButton = document.querySelector('.btn-new');
 
 newButton.addEventListener('click', function() {
+	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
+	let playerScore = parseInt(playerScoreDOM.textContent);
+	
+	if(playerScore >=20){
+		let playerName = document.querySelector('.winner');
+		playerName.classList.remove('winner');
+	}
+
 	resetCurrentScores();
 
 	let allPlayerScore = document.querySelectorAll('.player-score');
@@ -118,9 +126,12 @@ newButton.addEventListener('click', function() {
 	document.querySelector(`#name-0`).classList.add('player-name');
 	document.querySelector(`#name-1`).classList.add('player-name');
 	
-	let playerName = document.querySelector('.winner');
-	playerName.classList.remove('winner');
+	
 
+	
+	
+		let diceImage = document.querySelector('.dice');
+		diceImage.style.display = 'none';
 // Display game controls
 		holdButton.style.display = 'block';
 		rollButton.style.display = 'block';
