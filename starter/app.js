@@ -22,10 +22,16 @@ function currentScoreDOM() {
 
 /*****************************************************************
 * SET WINNING SCORE */
-let winningScore = document.querySelector('#winning-score').value;
-winningScore = winningScore;
+let winningScore = document.querySelector('#winning-score');
 
-console.log(winningScore);
+function nowWinScore () {
+	
+	return winningScore.value;
+}
+winningScore.addEventListener('change', nowWinScore)
+
+
+console.log(winningScore.value);
 
 /*****************************************************************
 * WINNING SCORE MODAL
@@ -60,7 +66,8 @@ function resetCurrentScores() {
 let rollButton = document.querySelector('.btn-roll');
 
 rollButton.addEventListener('click', function() {
-	if(winningScore <= 0) {
+	nowWinScore();
+	if(winningScore.value <= 0) {
 		showModal();
 	} else {
 		let dice = Math.floor(Math.random() * 6) + 1;
@@ -96,7 +103,7 @@ rollButton.addEventListener('click', function() {
 let holdButton = document.querySelector('.btn-hold');
 
 holdButton.addEventListener('click', function(){
-	if(winningScore <= 0) {
+	if(winningScore.value <= 0) {
 		showModal();
 	} else {
 		let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
@@ -108,7 +115,7 @@ holdButton.addEventListener('click', function(){
 	switchTurn();
 	resetCurrentScores();
 
-	if(playerScore >= winningScore) {
+	if(playerScore >= winningScore.value) {
 		switchTurn();
 		winner = `Player ${activePlayer + 1}`;
 		console.log(winner);
