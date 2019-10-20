@@ -27,6 +27,20 @@ winningScore = winningScore;
 
 console.log(winningScore);
 
+/*****************************************************************
+* WINNING SCORE MODAL
+*/
+let okButton = document.querySelector('#ok');
+let modal = document.querySelector('.modal');
+
+okButton.addEventListener('click', function() {
+	modal.style.display = 'none';
+})
+
+function showModal () {
+	modal.style.display = 'block';
+}
+
 // Turn Changer
 function switchTurn() {
 	let playerPanel0 = document.querySelector(`.player-0-panel`);
@@ -46,7 +60,10 @@ function resetCurrentScores() {
 let rollButton = document.querySelector('.btn-roll');
 
 rollButton.addEventListener('click', function() {
-	let dice = Math.floor(Math.random() * 6) + 1;
+	if(winningScore <= 0) {
+		showModal();
+	} else {
+		let dice = Math.floor(Math.random() * 6) + 1;
 
 	// Display corresponding dice image
 	let diceImage = document.querySelector('.dice');
@@ -71,13 +88,18 @@ rollButton.addEventListener('click', function() {
 		switchTurn();
 		resetCurrentScores();
 	}
+	}
+	
 });
 
 // Use hold button to add current score to player score
 let holdButton = document.querySelector('.btn-hold');
 
 holdButton.addEventListener('click', function(){
-	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
+	if(winningScore <= 0) {
+		showModal();
+	} else {
+		let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
 	let playerScore = parseInt(playerScoreDOM.textContent);
 	
 	currentScoreDOM();
@@ -101,6 +123,8 @@ holdButton.addEventListener('click', function(){
 		let diceImage = document.querySelector('.dice');
 		diceImage.style.display = 'none';
 	}
+	}
+	
 })
 
 
@@ -144,4 +168,6 @@ newButton.addEventListener('click', function() {
 		holdButton.style.display = 'block';
 		rollButton.style.display = 'block';
 })
+
+
 
