@@ -19,6 +19,14 @@ let currentScoreAggregate = 0;
 function currentScoreDOM() {
 	currentScore = document.querySelector(`#current-${activePlayer}`);
 }
+
+/*****************************************************************
+* SET WINNING SCORE */
+let winningScore = document.querySelector('#winning-score').value;
+winningScore = winningScore;
+
+console.log(winningScore);
+
 // Turn Changer
 function switchTurn() {
 	let playerPanel0 = document.querySelector(`.player-0-panel`);
@@ -78,7 +86,7 @@ holdButton.addEventListener('click', function(){
 	switchTurn();
 	resetCurrentScores();
 
-	if(playerScore >= 20) {
+	if(playerScore >= winningScore) {
 		switchTurn();
 		winner = `Player ${activePlayer + 1}`;
 		console.log(winner);
@@ -103,7 +111,7 @@ newButton.addEventListener('click', function() {
 	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
 	let playerScore = parseInt(playerScoreDOM.textContent);
 	
-	if(playerScore >=20){
+	if(playerScore >= winningScore){
 		let playerName = document.querySelector('.winner');
 		playerName.classList.remove('winner');
 	}
@@ -136,3 +144,4 @@ newButton.addEventListener('click', function() {
 		holdButton.style.display = 'block';
 		rollButton.style.display = 'block';
 })
+
