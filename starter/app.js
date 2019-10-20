@@ -142,10 +142,10 @@ newButton.addEventListener('click', function() {
 	let playerScoreDOM = document.querySelector(`#score-${activePlayer}`);
 	let playerScore = parseInt(playerScoreDOM.textContent);
 	
-	if(playerScore >= winningScore){
+	
 		let playerName = document.querySelector('.winner');
 		playerName.classList.remove('winner');
-	}
+	
 
 	resetCurrentScores();
 
