@@ -188,18 +188,25 @@ form {
 }
 
 .modal p {
-    position: relative;
-    top: 50vh;
+    
     border: 2px solid red;
-    margin: 2px auto;
+    margin: 4px auto;
     text-align: center;
-    width: 30%;
+    width: 90%;
     background-color: #fff;
     color: #f00;
     max-width: 200px;
 
 }
 
-#ok {
-    top: 60vh;
+.modal-content {
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 15vh;
+    margin: 0 auto;
+    position: relative;
+    top: 50vh;
+    padding: 2em;
+    max-width: 300px;
 }
+
